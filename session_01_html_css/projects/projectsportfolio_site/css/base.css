@@ -1,0 +1,34 @@
+
+/* Global base styles */
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-main);
+	color: var(--color-text);
+	background: var(--color-light);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Reusable container */
+.container {
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	padding: 0 1.25rem;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+}
+
+.lead {
+	color: var(--color-primary);
+}
+

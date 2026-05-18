@@ -1,0 +1,11 @@
+:root {
+    --color-primary: #6366f1; /*Màu tím xanh*/
+    --color-secondary: #8b5cf6; /*Màu tím*/
+    --color-accent: #f59e0b; /* Màu vàng nhấn */
+    --color-dark: #1e293b; /*Màu nền tối*/
+    --color-light: #f8fafc; /*Màu nền sáng*/
+    --color-text: #334155; /*Màu chữ chính*/
+    --font-main: 'Inter', system-ui, sans-serif;
+    --container-max-width: 1200px;
+
+}

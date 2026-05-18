@@ -1,0 +1,75 @@
+.hero {
+    /*Cao bằng 100% chiều cao màn hình thiết bị*/
+    height: 100vh;
+
+    /*Dùng Flexbox để đưa mọi thứ vào giữa*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /*Màu nền gradient */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 6rem; /* Chữ rất to */
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--color-accent); /* Màu vàng nhấn */
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.75rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+/* Style cho cái nút */
+.cta-button {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: #ffffff;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-radius: 40px; /* Bo tròn */
+    font-weight: 600;
+    transition: all 0.25s ease;
+    box-shadow: 0 12px 30px rgba(17,24,39,0.18);
+    border: none;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px); /* Bay nhẹ lên khi di chuột vào */
+    box-shadow: 0 20px 45px rgba(17,24,39,0.2);
+}
+
+/* ensure hero content sits within the container and centers */
+.hero > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 4.2rem; }
+}
+
+@media (max-width: 768px) {
+    .hero { padding: 0 16px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1rem; }
+    .cta-button { padding: 0.65rem 1.25rem; }
+}

@@ -1,0 +1,52 @@
+.about-section {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Chia 2 cột lệch */
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--color-primary);
+    box-shadow: 0 12px 40px rgba(17,24,39,0.12);
+    display: block;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    color: rgba(51,65,85,0.85);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 680px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .about-section { padding: 60px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+    .about-image img { width: 220px; height: 220px; }
+    .about-content h2 { font-size: 2rem; }
+    .about-content p { margin-left: auto; margin-right: auto; }
+}
