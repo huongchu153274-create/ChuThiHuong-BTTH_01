@@ -1,6 +1,0 @@
-{
-  "name": "node-js-example",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "import.js"
-}
