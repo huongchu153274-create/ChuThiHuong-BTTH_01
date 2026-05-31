@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vanilla Todo Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+    .done { text-decoration: line-through; color: gray; }
+  </style>
+</head>
+<body>
+  <h1>📋 Todo (Vanilla JS)</h1>
+  <div>
+    <input id="todoInput" placeholder="Nhập công việc..." />
+    <button id="addBtn">Thêm</button>
+  </div>
+  <div id="todoList"></div>
+
+  <script>
+    const input = document.getElementById('todoInput');
+    const list = document.getElementById('todoList');
+    const btn = document.getElementById('addBtn');
+    let todos = [];
+
+    function render() {
+      list.innerHTML = todos.map(t => `
+        <div data-id="${t.id}">
+          <input type="checkbox" ${t.done ? 'checked' : ''} class="chk" />
+          <span class="${t.done ? 'done' : ''}">${t.text}</span>
+          <button class="del">Xóa</button>
+        </div>
+      `).join('');
+    }
+
+    btn.addEventListener('click', () => {
+      const v = input.value.trim();
+      if (!v) return;
+      todos.push({ id: Date.now(), text: v, done: false });
+      input.value = '';
+      render();
+    });
+
+    list.addEventListener('click', (e) => {
+      const el = e.target;
+      const parent = el.closest('div[data-id]');
+      if (!parent) return;
+      const id = Number(parent.dataset.id);
+      if (el.classList.contains('del')) {
+        todos = todos.filter(t => t.id !== id); render();
+      }
+    });
+
+    list.addEventListener('change', (e) => {
+      if (e.target.classList.contains('chk')) {
+        const parent = e.target.closest('div[data-id]');
+        const id = Number(parent.dataset.id);
+        todos = todos.map(t => t.id === id ? { ...t, done: !t.done } : t);
+        render();
+      }
+    });
+  </script>
+</body>
+</html>

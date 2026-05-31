@@ -1,0 +1,15 @@
+.card img {
+  height: 120px;
+  object-fit: cover;   /* quan trọng: nhìn đẹp hơn contain */
+  border-bottom: 1px solid #eee;
+}
+
+.card {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

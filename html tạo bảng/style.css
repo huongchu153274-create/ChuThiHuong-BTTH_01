@@ -1,0 +1,14 @@
+body {
+    background-color: #f0f0f0;
+}
+
+#header {
+    background-color: skyblue;
+    padding: 20px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkblue;
+}

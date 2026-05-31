@@ -247,6 +247,83 @@ Ví dụ cụ thể: trong trang sản phẩm, nếu dùng <article> cho mỗi s
 Tuy nhiên, <div> vẫn cần thiết trong thực tế. Khi không có thẻ semantic phù hợp <ví dụ: container để layout, grouping phục vụ CSS hoặc JavaScript>, <div> là lựa chọn đúng. Vấn đề không phải là loại bỏ <div>, mà là dùng đúng chỗ.
 Tóm lại, semantic HTML không làm chậm quá trình phát trình mà giúp code chuẩn hơn, dễ bảo trì hơn, và cải thiện SEO lẫn accessibility một cách rõ rệt.
 
-            
+
+Phần B 
+
+BÀI 3
+Lỗi 1: Dòng 1 — <!DOCTYPE> sai cú pháp  
+→ Sửa thành: <!DOCTYPE html>
+
+Lỗi 2: Dòng 2 — Thiếu thuộc tính lang cho thẻ <html>  
+→ Sửa: <html lang="vi">
+
+Lỗi 3: Dòng 4 — Thẻ <title> không đóng  
+→ Sửa: <title>Trang web</title>
+
+Lỗi 4: Dòng 5 — charset sai "utf8"  
+→ Sửa: <meta charset="UTF-8">
+
+Lỗi 5: Dòng 8 — Thẻ <h1> không đóng  
+→ Sai: <h1>Welcome to ShopTLU<h1>  
+→ Đúng: <h1>Welcome to ShopTLU</h1>
+
+Lỗi 6: Dòng 12 — Thẻ <a> không đóng  
+→ Sai: <a href="home">Trang chủ<a>     
+
+Lỗi 7: Dòng 12 — href sai định dạng  
+→ "home" → phải là "#home" (anchor link)
+
+Lỗi 8: Dòng 20 — Thẻ <img> thiếu dấu ngoặc kép và alt  
+→ Sai: <img src=iphone.jpg>  
+→ Đúng: <img src="iphone.jpg" alt="iPhone">
+
+Lỗi 9: Dòng 22 — Thẻ <b> đóng sai vị trí  
+→ Sai: <p>Giá: <b>25.990.000đ</p></b>  
+→ Đúng: <p>Giá: <b>25.990.000đ</b></p>
+
+Lỗi 10: Có 2 thẻ <main> (sai chuẩn HTML5)  
+→ Sửa: dòng 40 đổi <main> thứ 2 thành <aside>
+
+Lỗi 11: Dòng 45 — Thẻ <footer> không đóng nội dung  
+→ Sai: <p>Copyright 2026  
+→ Đúng: <p>Copyright 2026</p>
 
 
+
+BÀI B4 — PHÂN TÍCH WEBSITE SHOPEE.VN
+## 1. Semantic HTML5 được sử dụng
+Quan sát bằng DevTools (F12) tại trang chủ shopee.vn:
+Thẻ 1: <footer>  
+→ Xuất hiện ở cuối trang, chứa thông tin công ty, chính sách, hỗ trợ
+Thẻ 2: <html lang="vi">  
+→ Xác định ngôn ngữ của trang là tiếng Việt
+Thẻ 3: <head>  
+→ Chứa meta, title, link CSS (phần cấu hình trang)
+## 2. Các thẻ KHÔNG dùng đúng semantic
+Lỗi 1: Không sử dụng <header>  
+→ Phần đầu trang (logo + thanh tìm kiếm) được xây bằng <div> thay vì <header>
+Lỗi 2: Không sử dụng <nav>  
+→ Menu điều hướng cũng dùng <div> thay vì <nav>
+Lỗi 3: Không dùng <article> cho sản phẩm  
+→ Mỗi sản phẩm là <div>, không phải <article>
+→ Nhận xét: Shopee chủ yếu dùng <div> thay vì semantic HTML5
+## 3. Phân tích TABLE
+Tìm trong DevTools:
+→ Không tìm thấy <table> trên trang chủ
+→ Shopee hiển thị dữ liệu bằng <div> thay vì bảng
+→ Kết luận:
+- Không có <thead>, <tbody>
+- Không sử dụng cấu trúc bảng chuẩn
+## 4. Phân tích FORM (ô tìm kiếm)
+Quan sát ô tìm kiếm trên đầu trang:
+Form:
+→ action="/search"
+→ method="GET"
+Input:
+→ type="text" (ô nhập từ khóa)
+→ type="submit" (nút tìm kiếm)
+## 5. Nhận xét chung
+- Shopee có sử dụng một số thẻ HTML cơ bản như html, head, footer  
+- Tuy nhiên KHÔNG sử dụng đầy đủ semantic HTML5 (header, nav, article)  
+- Chủ yếu sử dụng <div> để xây dựng layout  
+- Đây là cách phổ biến ở các website lớn (SPA, React)

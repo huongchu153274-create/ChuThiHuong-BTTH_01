@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>React CDN Todo Demo</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const e = React.createElement;
+    function App() {
+      const [todos, setTodos] = React.useState([]);
+      const [text, setText] = React.useState('');
+
+      function add() {
+        if (!text.trim()) return;
+        setTodos([...todos, { id: Date.now(), text, done: false }]);
+        setText('');
+      }
+
+      function toggle(id) {
+        setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+      }
+
+      function del(id) { setTodos(todos.filter(t => t.id !== id)); }
+
+      return e('div', null,
+        e('h1', null, 'Todo (React CDN)'),
+        e('div', null,
+          e('input', { value: text, onChange: (e) => setText(e.target.value) }),
+          e('button', { onClick: add }, 'Thêm')
+        ),
+        e('div', null, todos.map(t => e('div', { key: t.id },
+          e('input', { type: 'checkbox', checked: t.done, onChange: () => toggle(t.id) }),
+          e('span', { style: { textDecoration: t.done ? 'line-through' : 'none', marginLeft: 8 } }, t.text),
+          e('button', { onClick: () => del(t.id), style: { marginLeft: 8 } }, 'Xóa')
+        )))
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+  </script>
+</body>
+</html>
